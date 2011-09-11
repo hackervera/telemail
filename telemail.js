@@ -66,8 +66,15 @@ var listen = function(address){
     //console.log(this.privkey);
     s.on("+to", function(remoteipp, telex, line) {
         if(telex["+to"] == address){
-            var message = dcrypt.rsa.decrypt(self.privkey, telex["message"], 'RSA_PKCS1_PADDING', 'hex');
-            telemail.emit("message", message);
+            try {
+                var message = dcrypt.rsa.decrypt(self.privkey, telex["message"], 'RSA_PKCS1_PADDING', 'hex');
+                telemail.emit("message", message);
+            }
+            catch(e){
+                console.log(e);
+            }
+                
+            
         }
     });
 }
