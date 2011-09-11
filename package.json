@@ -1,0 +1,10 @@
+{
+    "name":"telemail",
+    "version":"0.1.0",
+    "description":"telehash based mail system",
+    "main":"telemail.js",
+    "dependencies":{
+        "dcrypt":"*"
+        
+    }
+}
